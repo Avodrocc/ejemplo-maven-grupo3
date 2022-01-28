@@ -68,7 +68,7 @@ pipeline {
             }
         }
         stage('Paso 9: Bajar de Nexus') {
-            steps {  
+            steps {    
                 sh 'curl -X GET "http://nexus:8081/repository/devops-usach-nexus/com/devopsusach2020/DevOpsUsach2020/1.0.0/DevOpsUsach2020-1.0.0.jar" -O'
             }
         }
