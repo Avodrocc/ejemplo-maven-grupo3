@@ -67,6 +67,11 @@ pipeline {
                 nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'devops-usach-nexus', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'build/DevOpsUsach2020-0.0.1.jar']], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '1.0.0']]]
             }
         }
+        stage('Paso 9: Bajar de Nexus') {
+            steps {
+                sh 'curl -X GET "http://nexus:8081/repository/devops-usach-nexus/com/devopsusach2020/DevOpsUsach2020/1.0.0/DevOpsUsach2020-1.0.0.jar" -O'
+            }
+        }
 
 
     }
